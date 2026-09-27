@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -132,10 +131,10 @@
   .badge-open .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px rgba(95,211,196,0.2);}
 
   .hero-top{display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap;}
-  .avatar-wrap{position:relative; width:96px; height:96px; flex-shrink:0;}
-  .avatar-wrap img{width:96px; height:96px; border-radius:50%; object-fit:cover; border:2px solid var(--accent-dim); display:block;}
+  .avatar-wrap{position:relative; width:120px; height:120px; flex-shrink:0;}
+  .avatar-wrap img{width:120px; height:120px; border-radius:50%; object-fit:cover; border:2px solid var(--accent-dim); display:block;}
   .avatar-fallback{
-    display:none; width:96px; height:96px; border-radius:50%; border:2px solid var(--accent-dim);
+    display:none; width:120px; height:120px; border-radius:50%; border:2px solid var(--accent-dim);
     background:var(--bg-panel); align-items:center; justify-content:center;
     font-family:var(--serif); font-size:30px; color:var(--accent); position:absolute; top:0; left:0;
   }
@@ -197,10 +196,10 @@
   <div class="wrap">
     <span class="badge-open">
       <span class="dot"></span>
-      <span data-fr="En recherche d'alternance — disponible dès octobre 2026" data-en="Looking for a work-study placement — available from October 2026">En recherche d'alternance — disponible dès octobre 2026</span>
+      <span data-fr="En recherche d'alternance en cybersécurité — disponible dès octobre 2026" data-en="Looking for a work-study placement in cybersecurity — available from October 2026">En recherche d'alternance — disponible dès octobre 2026</span>
     </span>
 
-    <div class="kicker" data-fr="portfolio — cybersécurité opérationnelle" data-en="portfolio — operational cybersecurity">portfolio — cybersécurité opérationnelle</div>
+    <div class="kicker" data-fr="Portfolio — Cybersécurité Opérationnelle" data-en="Portfolio — Operational Cybersecurity">Portfolio — Cybersécurité Opérationnelle</div>
 
     <div class="hero-top">
       <div class="avatar-wrap">
@@ -209,8 +208,8 @@
       </div>
       <div>
         <h1>Ralph Ndoumbe</h1>
-        <p class="role">Ingénieur Cybersécurité &amp; Réseaux | Sécurité SI • SOC • Audit SSI</p>
-        <p class="role-note" data-fr="Déjà ingénieur informatique diplômé, je me spécialise en cybersécurité via un Mastère Spécialisé Expert en Cybersécurité d'EFREI (dès octobre 2026)." data-en="Already holding a Master's degree in Computer Science, I am specializing in cybersecurity through an Advanced Master (Mastère Spécialisé) in Cybersecurity Expert at EFREI (starting October 2026).">Déjà ingénieur informatique diplômé, je me spécialise en cybersécurité via un Mastère Spécialisé Expert en Cybersécurité d'EFREI (dès octobre 2026).</p>
+        <p class="role" data-fr="Ingénieur Cybersécurité &amp; Réseaux | Sécurité SI • SOC • Audit SSI" data-en="Cybersecurity &amp; Network Engineer | Information Security • SOC • Security Auditing">Ingénieur Cybersécurité &amp; Réseaux | Sécurité SI • SOC • Audit SSI</p>
+        <p class="role-note" data-fr="Déjà ingénieur informatique diplômé, je me spécialise en cybersécurité via le Mastère Spécialisé Expert en Cybersécurité d'EFREI (dès octobre 2026)." data-en="Already holding an engineering degree in Computer Science, I am specializing in cybersecurity through the Mastère Spécialisé® Expert en Cybersécurité at EFREI (starting October 2026).">Déjà ingénieur informatique diplômé, je me spécialise en cybersécurité via un Mastère Spécialisé Expert en Cybersécurité d'EFREI (dès octobre 2026).</p>
       </div>
     </div>
 
@@ -252,7 +251,6 @@
           <div class="tool"><svg><use href="#i-scan"/></svg><span>Burp Suite</span></div>
           <div class="tool"><svg><use href="#i-scan"/></svg><span>Metasploit</span></div>
           <div class="tool"><svg><use href="#i-scan"/></svg><span>Nmap</span></div>
-          <div class="tool"><svg><use href="#i-shield"/></svg><span>OWASP Top 10</span></div>
         </div>
       </div>
       <div class="skill-group tool-group">
@@ -304,7 +302,7 @@
         </div>
       </div>
       <div class="skill-group">
-        <h3 data-fr="Veille" data-en="Watch &amp; research">Veille</h3>
+        <h3 data-fr="Veille" data-en="Monitoring &amp; research">Veille</h3>
         <p data-fr="CVE · bulletins CERT-FR · TryHackMe · HackTheBox · Root-Me" data-en="CVE · CERT-FR bulletins · TryHackMe · HackTheBox · Root-Me">CVE · bulletins CERT-FR · TryHackMe · HackTheBox · Root-Me</p>
       </div>
     </div>
@@ -320,9 +318,15 @@
         <div><span class="job-title">Ingénieur de Recherche</span> — <span class="job-org">Icam Nantes</span></div>
         <div class="job-dates">02/2026 – 07/2026</div>
       </div>
-      <ul data-fr="<li>Système embarqué temps réel en C++ pour capteurs IMU (Arduino), communications BLE / MQTT.</li>" data-en="<li>Real-time embedded system in C++ for IMU sensors (Arduino), BLE / MQTT communications.</li>">
-        <li>Système embarqué temps réel en C++ pour capteurs IMU (Arduino), communications BLE / MQTT.</li>
-      </ul>
+     <ul
+       data-fr="<li>Développement d'un système embarqué temps réel en C++ pour le traitement de données issues de capteurs IMU.</li><li>Conception d'algorithmes de fusion de données et de traitement du signal sur microcontrôleur Arduino.</li><li>Conception, déploiement et validation des communications embarquées via BLE, liaison série et MQTT.</li><li>Conduite des essais expérimentaux et optimisation des performances d'un système embarqué.</li>"
+       data-en="<li>Development of a real-time embedded system in C++ for processing data from IMU sensors.</li><li>Design of data fusion and signal processing algorithms on an Arduino microcontroller.</li><li>Design, deployment and validation of embedded communications via BLE, serial communication and MQTT.</li><li>Conducted experimental testing and optimized the performance of the embedded system.</li>"
+     >
+       <li>Développement d'un système embarqué temps réel en C++ pour le traitement de données issues de capteurs IMU.</li>
+       <li>Conception d'algorithmes de fusion de données et de traitement du signal sur microcontrôleur Arduino.</li>
+       <li>Conception, déploiement et validation des communications embarquées via BLE, liaison série et MQTT.</li>
+       <li>Conduite des essais expérimentaux et optimisation des performances d'un système embarqué.</li>
+     </ul>
       <a class="gh-link" href="#" data-fr="Voir sur GitHub →" data-en="View on GitHub →">Voir sur GitHub →</a>
     </div>
 
@@ -346,10 +350,14 @@
         <div><span class="job-title">Stagiaire Support IT NOC</span> — <span class="job-org">CAMIX</span></div>
         <div class="job-dates">01/2024 – 04/2024</div>
       </div>
-      <ul data-fr="<li>Supervision de 20 équipements réseau avec PRTG ; peering BGP multilatéral au sein d'un IXP.</li><li>Analyse de 22 risques liés à l'exploitation de l'infrastructure.</li>"
-      data-en="<li>Monitored 20 network devices with PRTG; multilateral BGP peering within an IXP.</li><li>Assessed 22 risks related to infrastructure operations.</li>">
-        <li>Supervision de 20 équipements réseau avec PRTG ; peering BGP multilatéral au sein d'un IXP.</li>
-        <li>Analyse de 22 risques liés à l'exploitation de l'infrastructure.</li>
+      <ul
+        data-fr="<li>Supervision de 20 équipements réseau et liens de peering via PRTG Network Monitor.</li><li>Conception et mise en œuvre de 6 sessions de peering BGP multilatéral au sein d’un Internet Exchange Point (IXP).</li><li>Analyse de 22 risques liés à l’exploitation de l’infrastructure de l’IXP.</li><li>Interventions en datacenter sur les équipements, baies, câblages et interconnexions réseau.</li>"
+        data-en="<li>Monitored 20 network devices and peering links using PRTG Network Monitor.</li><li>Designed and implemented 6 multilateral BGP peering sessions within an Internet Exchange Point (IXP).</li><li>Assessed 22 risks related to the operation of the IXP infrastructure.</li><li>Performed datacenter operations on network equipment, racks, cabling and interconnections.</li>"
+      >
+        <li>Supervision de 20 équipements réseau et liens de peering via PRTG Network Monitor.</li>
+        <li>Conception et mise en œuvre de 6 sessions de peering BGP multilatéral au sein d’un Internet Exchange Point (IXP).</li>
+        <li>Analyse de 22 risques liés à l’exploitation de l’infrastructure de l’IXP.</li>
+        <li>Interventions en datacenter sur les équipements, baies, câblages et interconnexions réseau.</li>
       </ul>
       <a class="gh-link" href="#" data-fr="Voir sur GitHub →" data-en="View on GitHub →">Voir sur GitHub →</a>
     </div>
@@ -359,10 +367,14 @@
         <div><span class="job-title">Stagiaire Support IT</span> — <span class="job-org">FGCL</span></div>
         <div class="job-dates">05/2023 – 07/2023</div>
       </div>
-      <ul data-fr="<li>Identification et analyse de 30 vulnérabilités réseau avec Nessus.</li><li>Administration de postes Windows / VMware avec Active Directory ; gestion d'un parc de 50 équipements (GLPI).</li>"
-      data-en="<li>Identified and analysed 30 network vulnerabilities with Nessus.</li><li>Administered Windows / VMware environments with Active Directory; managed a fleet of 50 devices (GLPI).</li>">
-        <li>Identification et analyse de 30 vulnérabilités réseau avec Nessus.</li>
-        <li>Administration de postes Windows / VMware avec Active Directory ; gestion d'un parc de 50 équipements (GLPI).</li>
+      <ul
+        data-fr="<li>Support utilisateurs N1 &amp; N2 : diagnostic, résolution et escalade des incidents matériels et logiciels.</li><li>Déploiement et administration de postes et environnements Windows / VMware.</li><li>Gestion d’un parc de 50 équipements via GLPI.</li><li>Identification et analyse de 30 vulnérabilités réseau internes et externes avec Nessus.</li>"
+        data-en="<li>N1 &amp; N2 user support: diagnosis, resolution and escalation of hardware and software incidents.</li><li>Deployment and administration of Windows / VMware workstations and environments.</li><li>Management of a fleet of 50 devices using GLPI.</li><li>Identification and analysis of 30 internal and external network vulnerabilities with Nessus.</li>"
+      >
+        <li>Support utilisateurs N1 &amp; N2 : diagnostic, résolution et escalade des incidents matériels et logiciels.</li>
+        <li>Déploiement et administration de postes et environnements Windows / VMware.</li>
+        <li>Gestion d’un parc de 50 équipements via GLPI.</li>
+        <li>Identification et analyse de 30 vulnérabilités réseau internes et externes avec Nessus.</li>
       </ul>
       <a class="gh-link" href="#" data-fr="Voir sur GitHub →" data-en="View on GitHub →">Voir sur GitHub →</a>
     </div>
@@ -371,10 +383,10 @@
 
 <section id="projet">
   <div class="wrap">
-    <h2 data-fr="Projet phare" data-en="Featured project">Projet phare</h2>
+    <h2 data-fr="Projets Académiques" data-en="Academic Projects">Projets Académiques</h2>
     <div class="project">
-      <span class="tag" data-fr="projet académique · 10/2025 – 01/2026" data-en="academic project · 10/2025 – 01/2026">projet académique · 10/2025 – 01/2026</span>
-      <h3>AUTONOS — SOC automatisé basé sur la Threat Intelligence</h3>
+      <span class="tag" data-fr="Projet Conférence ETSIA · 10/2025 – 01/2026" data-en="ETSIA Conference Project · 10/2025 – 01/2026">Projet Conférence ETSIA · 10/2025 – 01/2026</span>
+      <h3>Projet AUTONOS — SOC automatisé basé sur la Threat Intelligence</h3>
       <p data-fr="Conception d'un SOC open source de bout en bout : détection, investigation, réponse. Coordination de l'intégration de Suricata pour la détection réseau, et de MISP / TheHive / Cortex pour l'enrichissement des indicateurs de compromission. Automatisation de la réponse via des workflows Shuffle : blocage d'IP, isolation d'endpoints, notifications."
          data-en="Designed the architecture of an end-to-end open-source SOC: detection, investigation, response. Coordinated the integration of Suricata for network detection, and MISP / TheHive / Cortex for IoC enrichment. Automated response with Shuffle workflows: IP blocking, endpoint isolation, notifications.">
         Conception d'un SOC open source de bout en bout : détection, investigation, réponse.
@@ -393,14 +405,14 @@
 
 <section id="benevolat">
   <div class="wrap">
-    <h2 data-fr="Bénévolat" data-en="Volunteering">Bénévolat</h2>
+    <h2 data-fr="Bénévolats" data-en="Volunteer Work">Bénévolats</h2>
 
     <div class="job" style="border-top:none; padding-top:0;">
       <div class="job-head">
         <div><span class="job-title" data-fr="Stagiaire Humanitaire" data-en="Humanitarian Volunteer">Stagiaire Humanitaire</span> — <span class="job-org">Centre de Santé Catholique Intégré Saint Martin De Porres</span></div>
         <div class="job-dates" data-fr="août 2022 – sept. 2022 · 2 mois" data-en="Aug 2022 – Sept 2022 · 2 months">août 2022 – sept. 2022 · 2 mois</div>
       </div>
-      <p style="margin-top:12px; color:var(--ink-dim); font-size:14.5px;">
+      <p style="margin-top:12px; color:var(--ink-dim); font-size:14.5px;" data-fr="Service généreux et gratuit au sein d'un centre de santé catholique — une immersion humaine complète dans un environnement médical, loin de mon domaine technique, pour apprendre à servir avant de diriger." data-en="Voluntary and unpaid service in a Catholic health centre — a full human immersion in a medical environment, far from my technical field, to learn to serve before leading.">
         Service généreux et gratuit au sein d'un centre de santé catholique — une immersion humaine complète dans un environnement médical, loin de mon domaine technique, pour apprendre à servir avant de diriger.
       </p>
       <ul data-fr="<li>Aide aux patients et accompagnants : assistance directe aux personnes malades et à leurs proches, dans une posture de service gratuit et sans attente de retour.</li><li>Intégration au personnel soignant : participation aux tâches du centre aux côtés du personnel médical, avec prise en charge autonome de certaines tâches délicates après montée en compétences rapide.</li><li>Travail en horaires continus : présence quotidienne de 8h à 17h dans un environnement physiquement et émotionnellement exigeant — gestion de la fatigue, du stress et de situations médicales sensibles.</li>"
@@ -419,7 +431,7 @@
         <div><span class="job-title" data-fr="Assistant Tuteur Académique" data-en="Academic Peer Tutor">Assistant Tuteur Académique</span> — <span class="job-org">Institut Ucac-Icam</span></div>
         <div class="job-dates" data-fr="sept. 2025 · 1 mois" data-en="Sept 2025 · 1 month">sept. 2025 · 1 mois</div>
       </div>
-      <p style="margin-top:12px; color:var(--ink-dim); font-size:14.5px;">
+      <p style="margin-top:12px; color:var(--ink-dim); font-size:14.5px;" data-fr="En tant qu'étudiant de 5ème année, sélectionné pour intégrer l'équipe d'assistants tuteurs chargée d'accueillir et d'accompagner les nouveaux étudiants de 1ère année durant leur semaine d'intégration à l'Ucac-Icam." data-en="As a fifth-year student, selected to join the peer tutor team responsible for welcoming and supporting first-year students during their induction week at Ucac-Icam.">
         En tant qu'étudiant de 5ème année, sélectionné pour intégrer l'équipe d'assistants tuteurs chargée d'accueillir et d'accompagner les nouveaux étudiants de 1ère année durant leur semaine d'intégration à l'Ucac-Icam.
       </p>
       <ul data-fr="<li>Présentation de l'école : transmission des codes, règles de vie et repères essentiels aux nouveaux arrivants.</li><li>Accompagnement moral et social : écoute et soutien des nouveaux étudiants face aux premières difficultés d'adaptation.</li><li>Organisation d'activités d'intégration pour créer du lien entre les promotions et favoriser la cohésion de groupe.</li><li>Travail en équipe de tuteurs : coordination pour une prise en charge cohérente de la promotion entrante.</li>"
@@ -435,13 +447,13 @@
 
 <section id="job-etudiant">
   <div class="wrap">
-    <h2>Job étudiant</h2>
+    <h2 data-fr="Job étudiant" data-en="Student job">Job étudiant</h2>
     <div class="job" style="border-top:none; padding-top:0;">
       <div class="job-head">
-        <div><span class="job-title">Équipier polyvalent</span> — <span class="job-org">McDonald's, Centre commercial Viv'Erdre, La Chapelle-sur-Erdre (44)</span></div>
-        <div class="job-dates">dates à préciser</div>
+        <div><span class="job-title" data-fr="Équipier polyvalent" data-en="Crew member">Équipier polyvalent</span> — <span class="job-org">McDonald's, Centre commercial Viv'Erdre, La Chapelle-sur-Erdre (44)</span></div>
+        <div class="job-dates" data-fr="avril 2026 – juin 2026 · 3 mois" data-en="April 2026 – June 2026 · 2 months">avril 2026 – juin 2026 · 3 mois</div>
       </div>
-      <ul>
+      <ul data-fr="<li>Préparation des commandes, cuisson des steaks et des frites.</li><li>Service client et nettoyage / rangement du poste de travail.</li><li>Services de nuit, avec rigueur sur les cadences et l'hygiène.</li><li>Travail d'équipe et bonne humeur au quotidien, même sous forte affluence.</li>" data-en="<li>Prepared orders, cooked burgers and fries.</li><li>Provided customer service and cleaned / organised the workstation.</li><li>Worked night shifts with attention to pace and hygiene standards.</li><li>Worked as part of a team and maintained a positive attitude during busy periods.</li>">
         <li>Préparation des commandes, cuisson des steaks et des frites.</li>
         <li>Service client et nettoyage / rangement du poste de travail.</li>
         <li>Services de nuit, avec rigueur sur les cadences et l'hygiène.</li>
@@ -453,17 +465,19 @@
 
 <section id="conference">
   <div class="wrap">
-    <h2>Conférence &amp; interventions</h2>
+    <h2 data-fr="Conférence &amp; interventions" data-en="Conference &amp; speaking engagements">Conférence &amp; interventions</h2>
     <div class="job" style="border-top:none; padding-top:0;">
       <div class="job-head">
-        <div><span class="job-title">ETSIA 2026</span> — <span class="job-org">Salon Technologique, Évolution Technologique et Stratégique de l'Informatique en Afrique</span></div>
+        <div><span class="job-title">ETSIA 2026</span> — <span class="job-org" data-fr="Salon Technologique, Évolution Technologique et Stratégique de l'Informatique en Afrique" data-en="Technology Fair — Technological and Strategic Evolution of IT in Africa">Salon Technologique, Évolution Technologique et Stratégique de l'Informatique en Afrique</span></div>
       </div>
       <p style="margin-top:12px; color:var(--ink-dim); font-size:14.5px;">
-        Participation au thème « Vers une Afrique digitale souveraine : réseaux intelligents, logiciels innovants et données stratégiques ». Présentation, avec une équipe d'étudiants ingénieurs en cybersécurité, du projet AUTONOS : un SOC automatisé, open source et abordable, conçu pour renforcer la souveraineté numérique des PME africaines. Contribution également au projet Yansnet, visant à connecter les écosystèmes éducatifs africains.
+        <span data-fr="Participation au thème « Vers une Afrique digitale souveraine : réseaux intelligents, logiciels innovants et données stratégiques ». Présentation, avec une équipe d'étudiants ingénieurs en cybersécurité, du projet AUTONOS : un SOC automatisé, open source et abordable, conçu pour renforcer la souveraineté numérique des PME africaines. Contribution également au projet Yansnet, visant à connecter les écosystèmes éducatifs africains." data-en="Participated in the theme “Towards a sovereign digital Africa: smart networks, innovative software and strategic data”. Presented the AUTONOS project with a team of cybersecurity engineering students: an automated, open-source and affordable SOC designed to strengthen the digital sovereignty of African SMEs. Also contributed to Yansnet, a project aimed at connecting African education ecosystems.">Participation au thème « Vers une Afrique digitale souveraine : réseaux intelligents, logiciels innovants et données stratégiques ». Présentation, avec une équipe d'étudiants ingénieurs en cybersécurité, du projet AUTONOS : un SOC automatisé, open source et abordable, conçu pour renforcer la souveraineté numérique des PME africaines. Contribution également au projet Yansnet, visant à connecter les écosystèmes éducatifs africains.</span>
       </p>
       <div class="conf-links">
-        <a href="https://www.linkedin.com/company/etsia/">Page LinkedIn ETSIA →</a>
-        <a href="#">Voir mon post LinkedIn →</a>
+        <a href="https://www.linkedin.com/company/etsia/" data-fr="Page LinkedIn ETSIA →" data-en="ETSIA LinkedIn page →">Page LinkedIn ETSIA →</a>
+        <a href="https://lnkd.in/p/eVm2GpkR" data-fr="Épisode 3 du Podcast Etsia →" data-en="Episode 3 of the Etsia Podcast →">Épisode 3 du Podcast Etsia →</a>
+        <a href="https://lnkd.in/p/eCZMAECw" data-fr="Épisode 1 du Podcast Etsia →" data-en="Episode 1 of the Etsia Podcast →">Épisode 1 du Podcast Etsia →</a>
+        <a href="https://lnkd.in/p/eWvcUcyH" data-fr="Voir mon post LinkedIn →" data-en="View my LinkedIn post →">Voir mon post LinkedIn →</a>
       </div>
     </div>
   </div>
@@ -471,54 +485,85 @@
 
 <section id="formation">
   <div class="wrap">
-    <h2>Formation &amp; certifications</h2>
+
+    <!-- Formation -->
+    <h2 data-fr="Formation" data-en="Education">Formation</h2>
+
     <div class="job" style="border-top:none; padding-top:0;">
       <div class="job-head">
-        <div><span class="job-title">Mastère Spécialisé® Expert en Cybersécurité</span> — <span class="job-org">EFREI</span></div>
+        <div>
+          <span class="job-title" data-fr="Mastère Spécialisé® Expert en Cybersécurité" data-en="Advanced Master’s in Cybersecurity">
+            Mastère Spécialisé® Expert en Cybersécurité
+          </span>
+          — <span class="job-org">EFREI</span>
+        </div>
         <div class="job-dates">2026 – 2027</div>
       </div>
     </div>
+
     <div class="job">
       <div class="job-head">
-        <div><span class="job-title">Diplôme d'Ingénieur Informatique</span> — <span class="job-org">Institut Ucac-Icam / Icam Nantes</span></div>
+        <div>
+          <span class="job-title" data-fr="Diplôme d'Ingénieur Informatique" data-en="Engineering Degree in Computer Science">
+            Diplôme d'Ingénieur Informatique
+          </span>
+          — <span class="job-org">Institut Ucac-Icam / Icam Nantes</span>
+        </div>
         <div class="job-dates">2021 – 2026</div>
       </div>
     </div>
+
     <div class="job">
-      <div class="job-head">
-        <div><span class="job-title">Certified Ethical Hacker (CEH v13)</span></div>
-        <div class="job-dates">2025</div>
-      </div>
+  <div class="job-head">
+    <div>
+      <span
+        class="job-title"
+        data-fr="Formation Certified Ethical Hacker (CEH v13) — Théorique &amp; pratique"
+        data-en="Certified Ethical Hacker (CEH v13) — Theoretical &amp; Practical Training"
+      >
+        Formation Certified Ethical Hacker (CEH v13) — Théorique &amp; pratique
+      </span>
     </div>
+    <div class="job-dates">2025</div>
+  </div>
+</div>
+
+
+    <!-- Certifications -->
+    <h2 data-fr="Certifications" data-en="Certifications" style="margin-top:32px;">
+      Certifications
+    </h2>
+
     <div class="certs" style="margin-top:8px;">
       <span><strong>CCNA 1</strong></span>
       <span><strong>CCNA 2</strong></span>
       <span><strong>IBM AI Fundamentals</strong></span>
       <span><strong>Check Point Harmony</strong> (Endpoint, Mobile, Email)</span>
-      <span><strong>Anglais</strong> — TOEIC 875</span>
+      <span><strong data-fr="Anglais" data-en="English">Anglais</strong> — TOEIC 875</span>
     </div>
+
   </div>
 </section>
 
 <section id="contact-form">
   <div class="wrap">
-    <h2>Me contacter</h2>
-    <p class="lede">Une question, une offre d'alternance ? Écrivez-moi directement, ou passez par ce formulaire.</p>
+    <h2 data-fr="Me contacter" data-en="Contact me">Me contacter</h2>
+    <p class="lede" data-fr="Une question, une offre d'alternance ? Écrivez-moi directement, ou passez par ce formulaire." data-en="A question or a work-study opportunity? Write to me directly or use this form.">Une question, une offre d'alternance ? Écrivez-moi directement, ou passez par ce formulaire.</p>
     <form class="contact" onsubmit="return sendMail(event)">
-      <label for="f-name">Nom complet</label>
+      <label for="f-name" data-fr="Nom complet" data-en="Full name">Nom complet</label>
       <input id="f-name" type="text" required>
 
-      <label for="f-company">Entreprise (optionnel)</label>
+      <label for="f-company" data-fr="Entreprise (optionnel)" data-en="Company (optional)">Entreprise (optionnel)</label>
       <input id="f-company" type="text">
 
-      <label for="f-email">Votre email</label>
+      <label for="f-email" data-fr="Votre email" data-en="Your email">Votre email</label>
       <input id="f-email" type="email" required>
 
-      <label for="f-message">Message</label>
+      <label for="f-message" data-fr="Message" data-en="Message">Message</label>
       <textarea id="f-message" required></textarea>
 
-      <button type="submit">Envoyer le message</button>
-      <p class="form-note">Ce bouton ouvre votre messagerie avec le message pré-rempli, prêt à envoyer à ian.ndoumbe@2026.icam.fr.</p>
+      <button type="submit" data-fr="Envoyer le message" data-en="Send message">Envoyer le message</button>
+      <p class="form-note" data-fr="Ce bouton ouvre votre messagerie avec le message pré-rempli, prêt à envoyer à ian.ndoumbe@2026.icam.fr." data-en="This button opens your email client with a pre-filled message, ready to send to ian.ndoumbe@2026.icam.fr.">Ce bouton ouvre votre messagerie avec le message pré-rempli, prêt à envoyer à ian.ndoumbe@2026.icam.fr.</p>
     </form>
   </div>
 </section>
@@ -531,9 +576,9 @@
       <a href="tel:+33780743976">07 80 74 39 76</a>
       <a href="https://www.linkedin.com/in/ralph-ndoumbe/">LinkedIn</a>
       <a href="https://wa.me/33780743976">WhatsApp</a>
-      <a href="assets/CV_Ralph_NDOUMBE.pdf" download>Télécharger le CV (PDF)</a>
+      <a href="assets/CV_Ralph_NDOUMBE.pdf" download data-fr="Télécharger le CV (PDF)" data-en="Download CV (PDF)">Télécharger le CV (PDF)</a>
     </div>
-    <p class="note">Disponible dès octobre 2026 — alternance 12 mois, 2 semaines entreprise / 1 semaine école.</p>
+    <p class="note" data-fr="Disponible dès octobre 2026 — alternance 12 mois, 2 semaines entreprise / 1 semaine école." data-en="Available from October 2026 — 12-month work-study placement, 2 weeks in company / 1 week at school.">Disponible dès octobre 2026 — alternance 12 mois, 2 semaines entreprise / 1 semaine école.</p>
   </div>
 </footer>
 

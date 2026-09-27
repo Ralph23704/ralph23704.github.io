@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -117,7 +118,7 @@
 
   /* --- ajouts --- */
   .lang-toggle{
-    position:fixed; top:env(safe-area-inset-top,16px); right:16px; z-index:50;
+    position:fixed; top:calc(env(safe-area-inset-top,0px) + 12px); right:16px; z-index:50;
     display:flex; background:var(--bg-panel); border:1px solid var(--line); border-radius:20px; overflow:hidden;
   }
   .lang-toggle button{font-family:var(--mono); font-size:12px; padding:7px 14px; background:none; border:none; color:var(--ink-dim); cursor:pointer;}
@@ -169,7 +170,51 @@
   form.contact button:hover{opacity:0.85;}
   .form-note{font-family:var(--mono); font-size:11px; color:var(--ink-dim); margin-top:12px;}
 
+  /* --- ajouts v3 : icônes de contact, menu déroulant, boxes colorées --- */
+  section{scroll-margin-top:60px;}
 
+  .ico{width:16px; height:16px; margin-right:7px; flex-shrink:0; color:var(--accent);}
+  .hero-meta span, .contact-row span, .contact-row a{display:inline-flex; align-items:center;}
+  h2 .ico{width:22px; height:22px; margin-right:10px; vertical-align:-3px;}
+  form.contact button{display:inline-flex; align-items:center;}
+  form.contact button .ico{color:var(--bg);}
+
+  .nav-menu{position:fixed; top:calc(env(safe-area-inset-top,0px) + 12px); left:16px; z-index:50;}
+  .nav-btn{
+    display:flex; align-items:center; font-family:var(--mono); font-size:12px; padding:7px 14px;
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:20px; color:var(--ink); cursor:pointer;
+  }
+  .nav-btn .ico{margin-right:8px;}
+  .nav-btn:hover{border-color:var(--accent-dim);}
+  .nav-list{
+    list-style:none; position:absolute; top:calc(100% + 8px); left:0; min-width:210px;
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:8px; padding:6px;
+    box-shadow:0 12px 32px rgba(0,0,0,0.45);
+  }
+  .nav-list a{display:block; padding:9px 12px; border-radius:5px; font-family:var(--mono); font-size:12.5px; color:var(--ink-dim);}
+  .nav-list a:hover{background:rgba(95,211,196,0.08); color:var(--accent); text-decoration:none;}
+
+  .box{
+    --bx:95,211,196;
+    background:rgba(var(--bx),0.05);
+    border:1px solid rgba(var(--bx),0.25);
+    border-left:3px solid rgb(var(--bx));
+    border-radius:6px; padding:22px 24px; margin-bottom:16px;
+  }
+  .box:last-child{margin-bottom:0;}
+  .box.sky{--bx:108,180,240;}
+  .box.violet{--bx:169,155,240;}
+  .box.amber{--bx:227,183,107;}
+  .box.rose{--bx:234,143,166;}
+  .box .job-org, .box a, .box .gh-link{color:rgb(var(--bx));}
+  .box li::marker{color:rgb(var(--bx));}
+  .box .ico{color:rgb(var(--bx));}
+  .box .tool{background:rgba(var(--bx),0.07); border-color:rgba(var(--bx),0.22);}
+  .box .tool svg{color:rgb(var(--bx));}
+  .job.box, .job.box:first-child{padding:22px 24px; border-top:1px solid rgba(var(--bx),0.25);}
+  .skill-group.box{margin-bottom:0; padding:18px;}
+  form.contact.box{max-width:560px;}
+  form.contact button .ico{color:var(--bg);}
 </style>
 </head>
 <body>
@@ -185,7 +230,34 @@
   <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="4.5" r="2"/><circle cx="4.5" cy="19" r="2"/><circle cx="19.5" cy="19" r="2"/><path d="M12 6.5v6M12 12.5l-6 4.7M12 12.5l6 4.7"/></symbol>
   <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7M18.4 18.4l-1.7-1.7M7.3 7.3L5.6 5.6"/></symbol>
   <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h6M9 16h6M9 8h2"/></symbol>
+
+  <!-- icônes de contact et de menu -->
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V17M12 17v-6.5M12 13.2a2.7 2.7 0 0 1 5.4 0V17"/><circle cx="8" cy="7.6" r="0.7" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8L4 20z"/><path d="M9.2 8.8c.3 2.3 2.7 4.8 5.1 5.2l1.3-1.3-1.9-1-.9.8a4.4 4.4 0 0 1-2-2l.8-.9-1-1.9-1.4 1.1z"/></symbol>
+  <symbol id="i-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
 </svg>
+
+<nav class="nav-menu" id="nav-menu" aria-label="Navigation">
+  <button class="nav-btn" id="nav-btn" type="button" aria-expanded="false" aria-controls="nav-list" onclick="toggleMenu()">
+    <svg class="ico"><use href="#i-menu"/></svg><span data-fr="Menu" data-en="Menu">Menu</span>
+  </button>
+  <ul class="nav-list" id="nav-list" hidden>
+    <li><a href="#profil" data-fr="Profil" data-en="Profile">Profil</a></li>
+    <li><a href="#competences" data-fr="Compétences" data-en="Skills &amp; tools">Compétences</a></li>
+    <li><a href="#experience" data-fr="Expériences" data-en="Experiences">Expériences</a></li>
+    <li><a href="#projet" data-fr="Projets académiques" data-en="Academic projects">Projets académiques</a></li>
+    <li><a href="#benevolat" data-fr="Bénévolats" data-en="Volunteer work">Bénévolats</a></li>
+    <li><a href="#job-etudiant" data-fr="Job étudiant" data-en="Student job">Job étudiant</a></li>
+    <li><a href="#conference" data-fr="Conférence" data-en="Conference">Conférence</a></li>
+    <li><a href="#formation" data-fr="Formations" data-en="Education">Formations</a></li>
+    <li><a href="#certification" data-fr="Certifications" data-en="Certifications">Certifications</a></li>
+    <li><a href="#contact-form" data-fr="Me contacter" data-en="Contact me">Me contacter</a></li>
+  </ul>
+</nav>
 
 <div class="lang-toggle" role="group" aria-label="Langue / Language">
   <button id="btn-fr" class="active" onclick="setLang('fr')">FR</button>
@@ -214,11 +286,12 @@
     </div>
 
     <div class="hero-meta">
-      <span>Franconville, Île-de-France</span>
-      <span>ian.ndoumbe@2026.icam.fr</span>
-      <span>07 80 74 39 76</span>
-      <span><a href="https://www.linkedin.com/in/ralph-ndoumbe/">linkedin.com/in/ralph-ndoumbe</a></span>
-      <span><a href="https://wa.me/33780743976">WhatsApp</a></span>
+      <span><svg class="ico"><use href="#i-pin"/></svg>Franconville, Île-de-France</span>
+      <span><svg class="ico"><use href="#i-mail"/></svg>ian.ndoumbe@2026.icam.fr</span>
+      <span><svg class="ico"><use href="#i-phone"/></svg>07 80 74 39 76</span>
+      <span><svg class="ico"><use href="#i-linkedin"/></svg><a href="https://www.linkedin.com/in/ralph-ndoumbe/">linkedin.com/in/ralph-ndoumbe</a></span>
+      <span><svg class="ico"><use href="#i-whatsapp"/></svg><a href="https://wa.me/33780743976">WhatsApp</a></span>
+      <span><svg class="ico"><use href="#i-message"/></svg><a href="#contact-form" data-fr="Envoyer un message" data-en="Send a message">Envoyer un message</a></span>
     </div>
     <a class="cv-btn" href="Ralph NDOUMBE.pdf" download data-fr="Télécharger le CV (PDF)" data-en="Download CV (PDF)">Télécharger le CV (PDF)</a>
   </div>
@@ -227,6 +300,7 @@
 <section id="profil">
   <div class="wrap">
     <h2 data-fr="Profil" data-en="Profile">Profil</h2>
+    <div class="box">
     <p class="lede" data-fr="Ingénieur informatique diplômé de l'Institut Ucac-Icam (dernier semestre à l'Icam Nantes), admis au Mastère Spécialisé® Expert en Cybersécurité de l'EFREI à partir d'octobre 2026. Mon terrain de prédilection : l'identification et la remédiation des vulnérabilités, la détection d'incidents, et la documentation qui rend une posture de sécurité lisible pour une équipe. J'ai audité des systèmes selon l'ISO/IEC 27001, conçu une architecture SIEM et construit un SOC open source de bout en bout. Je cherche une alternance où ces sujets sont encore à écrire."
       data-en="Graduate computer engineer from Institut Ucac-Icam (final semester at Icam Nantes), admitted to the Specialized Master® in Cybersecurity Expertise at EFREI starting in October 2026. My focus: identifying and remediating vulnerabilities, detecting incidents, and writing documentation that makes a security posture legible to a team. I've audited systems against ISO/IEC 27001, contributed to a SIEM architecture, and built an open-source SOC end to end. I'm looking for a work-study role where these topics are still being written.">
       Ingénieur informatique diplômé de l'<strong>Institut Ucac-Icam</strong> (dernier semestre à l'Icam Nantes),
@@ -236,6 +310,7 @@
       l'ISO/IEC 27001, conçu une architecture SIEM et construit un SOC open source de bout en bout.
       Je cherche une alternance où ces sujets sont encore à écrire.
     </p>
+    </div>
   </div>
 </section>
 
@@ -243,7 +318,7 @@
   <div class="wrap">
     <h2 data-fr="Compétences" data-en="Skills &amp; tools">Compétences</h2>
     <div class="skill-grid">
-      <div class="skill-group tool-group">
+      <div class="skill-group tool-group box rose">
         <h3 data-fr="Vulnérabilités &amp; durcissement" data-en="Vulnerabilities &amp; hardening">Vulnérabilités &amp; durcissement</h3>
         <div class="tool-grid">
           <div class="tool"><svg><use href="#i-scan"/></svg><span>Nessus</span></div>
@@ -253,7 +328,7 @@
           <div class="tool"><svg><use href="#i-scan"/></svg><span>Nmap</span></div>
         </div>
       </div>
-      <div class="skill-group tool-group">
+      <div class="skill-group tool-group box sky">
         <h3 data-fr="Détection &amp; réponse" data-en="Detection &amp; response">Détection &amp; réponse</h3>
         <div class="tool-grid">
           <div class="tool"><svg><use href="#i-monitor"/></svg><span>SIEM</span></div>
@@ -266,7 +341,7 @@
           <div class="tool"><svg><use href="#i-intel"/></svg><span>Cortex</span></div>
         </div>
       </div>
-      <div class="skill-group tool-group">
+      <div class="skill-group tool-group box violet">
         <h3 data-fr="Systèmes &amp; réseau" data-en="Systems &amp; network">Systèmes &amp; réseau</h3>
         <div class="tool-grid">
           <div class="tool"><svg><use href="#i-server"/></svg><span>Linux</span></div>
@@ -282,7 +357,7 @@
           <div class="tool"><svg><use href="#i-alert"/></svg><span>Wireshark</span></div>
         </div>
       </div>
-      <div class="skill-group tool-group">
+      <div class="skill-group tool-group box amber">
         <h3 data-fr="Scripting &amp; automatisation" data-en="Scripting &amp; automation">Scripting &amp; automatisation</h3>
         <div class="tool-grid">
           <div class="tool"><svg><use href="#i-terminal"/></svg><span>Python</span></div>
@@ -292,7 +367,7 @@
           <div class="tool"><svg><use href="#i-gear"/></svg><span>Shuffle (SOAR)</span></div>
         </div>
       </div>
-      <div class="skill-group tool-group">
+      <div class="skill-group tool-group box">
         <h3 data-fr="Conformité &amp; audit" data-en="Compliance &amp; audit">Conformité &amp; audit</h3>
         <div class="tool-grid">
           <div class="tool"><svg><use href="#i-doc"/></svg><span>ISO/IEC 27001</span></div>
@@ -301,7 +376,7 @@
           <div class="tool"><svg><use href="#i-doc"/></svg><span>Analyse de risques</span></div>
         </div>
       </div>
-      <div class="skill-group">
+      <div class="skill-group box sky">
         <h3 data-fr="Veille" data-en="Monitoring &amp; research">Veille</h3>
         <p data-fr="CVE · TryHackMe · HackTheBox · Root-Me" data-en="CVE · TryHackMe · HackTheBox · Root-Me">CVE · TryHackMe · HackTheBox · Root-Me</p>
       </div>
@@ -313,7 +388,7 @@
   <div class="wrap">
     <h2 data-fr="Expériences" data-en="Experiences">Expériences</h2>
 
-    <div class="job">
+    <div class="job box sky">
       <div class="job-head">
         <div><span class="job-title" data-fr="Ingénieur de Recherche" data-en="Research Engineer">Ingénieur de Recherche</span> — <span class="job-org">Icam Nantes</span></div>
         <div class="job-dates">02/2026 – 07/2026</div>
@@ -329,7 +404,7 @@
      </ul>
     </div>
 
-    <div class="job">
+    <div class="job box sky">
       <div class="job-head">
         <div><span class="job-title" data-fr="Stagiaire Sécurité des Systèmes d'Information" data-en="Information Systems Security Intern">Stagiaire Sécurité des Systèmes d'Information</span> — <span class="job-org">CAMRAIL</span></div>
         <div class="job-dates">09/2024 – 01/2025</div>
@@ -343,7 +418,7 @@
       </ul>
     </div>
 
-    <div class="job">
+    <div class="job box sky">
       <div class="job-head">
         <div><span class="job-title" data-fr="Stagiaire Support IT NOC" data-en="IT NOC Support Intern">Stagiaire Support IT NOC</span> — <span class="job-org">CAMIX</span></div>
         <div class="job-dates">01/2024 – 04/2024</div>
@@ -359,7 +434,7 @@
       </ul>
     </div>
 
-    <div class="job">
+    <div class="job box sky">
       <div class="job-head">
         <div><span class="job-title" data-fr="Stagiaire Support IT" data-en="IT Support Intern">Stagiaire Support IT</span> — <span class="job-org">FGCL</span></div>
         <div class="job-dates">05/2023 – 07/2023</div>
@@ -403,7 +478,7 @@
   <div class="wrap">
     <h2 data-fr="Bénévolats" data-en="Volunteer Work">Bénévolats</h2>
 
-    <div class="job" style="border-top:none; padding-top:0;">
+    <div class="job box violet">
       <div class="job-head">
         <div><span class="job-title" data-fr="Stagiaire Humanitaire" data-en="Humanitarian Volunteer">Stagiaire Humanitaire</span> — <span class="job-org">Centre de Santé Catholique Intégré Saint Martin De Porres</span></div>
         <div class="job-dates" data-fr="août 2022 – sept. 2022 · 2 mois" data-en="Aug 2022 – Sept 2022 · 2 months">août 2022 – sept. 2022 · 2 mois</div>
@@ -422,7 +497,7 @@
       </p>
     </div>
 
-    <div class="job">
+    <div class="job box violet">
       <div class="job-head">
         <div><span class="job-title" data-fr="Assistant Tuteur Académique" data-en="Academic Peer Tutor">Assistant Tuteur Académique</span> — <span class="job-org">Institut Ucac-Icam</span></div>
         <div class="job-dates" data-fr="sept. 2025 · 1 mois" data-en="Sept 2025 · 1 month">sept. 2025 · 1 mois</div>
@@ -444,10 +519,10 @@
 <section id="job-etudiant">
   <div class="wrap">
     <h2 data-fr="Job étudiant" data-en="Student job">Job étudiant</h2>
-    <div class="job" style="border-top:none; padding-top:0;">
+    <div class="job box amber">
       <div class="job-head">
         <div><span class="job-title" data-fr="Équipier polyvalent" data-en="Crew member">Équipier polyvalent</span> — <span class="job-org">McDonald's, Centre commercial Viv'Erdre, La Chapelle-sur-Erdre (44)</span></div>
-        <div class="job-dates" data-fr="avril 2026 – juin 2026 · 3 mois" data-en="April 2026 – June 2026 · 2 months">avril 2026 – juin 2026 · 3 mois</div>
+        <div class="job-dates" data-fr="avril 2026 – juin 2026 · 3 mois" data-en="April 2026 – June 2026 · 3 months">avril 2026 – juin 2026 · 3 mois</div>
       </div>
       <ul data-fr="<li>Préparation des commandes, cuisson des steaks et des frites.</li><li>Service client et nettoyage / rangement du poste de travail.</li><li>Services de nuit, avec rigueur sur les cadences et l'hygiène.</li><li>Travail d'équipe et bonne humeur au quotidien, même sous forte affluence.</li>" data-en="<li>Prepared orders, cooked burgers and fries.</li><li>Provided customer service and cleaned / organised the workstation.</li><li>Worked night shifts with attention to pace and hygiene standards.</li><li>Worked as part of a team and maintained a positive attitude during busy periods.</li>">
         <li>Préparation des commandes, cuisson des steaks et des frites.</li>
@@ -462,7 +537,7 @@
 <section id="conference">
   <div class="wrap">
     <h2 data-fr="Conférence &amp; interventions" data-en="Conference &amp; speaking engagements">Conférence &amp; interventions</h2>
-    <div class="job" style="border-top:none; padding-top:0;">
+    <div class="job box rose">
       <div class="job-head">
         <div><span class="job-title">ETSIA 2026</span> — <span class="job-org" data-fr="Salon Technologique, Évolution Technologique et Stratégique de l'Informatique en Afrique" data-en="Technology Fair — Technological and Strategic Evolution of IT in Africa">Salon Technologique, Évolution Technologique et Stratégique de l'Informatique en Afrique</span></div>
       </div>
@@ -485,7 +560,7 @@
     <!-- Formation -->
     <h2 data-fr="Formations" data-en="Education">Formations</h2>
 
-    <div class="job" style="border-top:none; padding-top:0;">
+    <div class="job box">
       <div class="job-head">
         <div>
           <span class="job-title" data-fr="Mastère Spécialisé® Expert en Cybersécurité" data-en="Specialized Master® in Cybersecurity Expertise">
@@ -497,7 +572,7 @@
       </div>
     </div>
 
-    <div class="job">
+    <div class="job box">
       <div class="job-head">
         <div>
           <span class="job-title" data-fr="Diplôme d'Ingénieur Informatique" data-en="Engineering Degree in Computer Science">
@@ -509,33 +584,33 @@
       </div>
     </div>
 
-    <div class="job">
-  <div class="job-head">
-    <div>
-      <span
-        class="job-title"
-        data-fr="Formation Certified Ethical Hacker (CEH v13) — Théorique &amp; pratique"
-        data-en="Certified Ethical Hacker (CEH v13) Training — Theoretical &amp; Practical Training"
-      >
-        Formation Certified Ethical Hacker (CEH v13) — Théorique &amp; pratique
-      </span>
+    <div class="job box">
+      <div class="job-head">
+        <div>
+          <span
+            class="job-title"
+            data-fr="Formation Certified Ethical Hacker (CEH v13) — Théorique &amp; pratique"
+            data-en="Certified Ethical Hacker (CEH v13) Training — Theoretical &amp; Practical Training"
+          >
+            Formation Certified Ethical Hacker (CEH v13) — Théorique &amp; pratique
+          </span>
+        </div>
+        <div class="job-dates">2025</div>
+      </div>
     </div>
-    <div class="job-dates">2025</div>
-  </div>
-</div>
 
-</div>
-</section>    
+  </div>
+</section>
 
 <section id="certification">
   <div class="wrap">
-    
+
     <!-- Certifications -->
-    <h2 data-fr="Certifications" data-en="Certifications" style="margin-top:32px;">
+    <h2 data-fr="Certifications" data-en="Certifications">
       Certifications
     </h2>
 
-    <div class="certs" style="margin-top:8px;">
+    <div class="certs box sky">
       <span><strong>CCNA 1</strong></span>
       <span><strong>CCNA 2</strong></span>
       <span><strong>IBM AI Fundamentals</strong></span>
@@ -548,9 +623,9 @@
 
 <section id="contact-form">
   <div class="wrap">
-    <h2 data-fr="Me contacter" data-en="Contact me">Me contacter</h2>
-    <p class="lede" data-fr="Une question, une offre d'alternance ? Écrivez-moi directement, ou passez par ce formulaire." data-en="A question or a work-study opportunity? Write to me directly or use this form.">Une question, une offre d'alternance ? Écrivez-moi directement, ou passez par ce formulaire.</p>
-    <form class="contact" onsubmit="return sendMail(event)">
+    <h2><svg class="ico"><use href="#i-message"/></svg><span data-fr="Me contacter" data-en="Contact me">Me contacter</span></h2>
+    <p class="lede" style="margin-bottom:20px;" data-fr="Une question, une offre d'alternance ? Écrivez-moi directement, ou passez par ce formulaire." data-en="A question or a work-study opportunity? Write to me directly or use this form.">Une question, une offre d'alternance ? Écrivez-moi directement, ou passez par ce formulaire.</p>
+    <form class="contact box" onsubmit="return sendMail(event)">
       <label for="f-name" data-fr="Nom complet" data-en="Full name">Nom complet</label>
       <input id="f-name" type="text" required>
 
@@ -563,7 +638,7 @@
       <label for="f-message" data-fr="Message" data-en="Message">Message</label>
       <textarea id="f-message" required></textarea>
 
-      <button type="submit" data-fr="Envoyer le message" data-en="Send message">Envoyer le message</button>
+      <button type="submit"><svg class="ico"><use href="#i-message"/></svg><span data-fr="Envoyer le message" data-en="Send message">Envoyer le message</span></button>
       <p class="form-note" data-fr="Ce bouton ouvre votre messagerie avec le message pré-rempli, prêt à envoyer à ian.ndoumbe@2026.icam.fr." data-en="This button opens your email client with a pre-filled message, ready to send to ian.ndoumbe@2026.icam.fr.">Ce bouton ouvre votre messagerie avec le message pré-rempli, prêt à envoyer à ian.ndoumbe@2026.icam.fr.</p>
     </form>
   </div>
@@ -573,10 +648,12 @@
   <div class="wrap">
     <h2>Contact</h2>
     <div class="contact-row">
-      <a href="mailto:ian.ndoumbe@2026.icam.fr">ian.ndoumbe@2026.icam.fr</a>
-      <a href="tel:+33780743976">07 80 74 39 76</a>
-      <a href="https://www.linkedin.com/in/ralph-ndoumbe/">LinkedIn</a>
-      <a href="https://wa.me/33780743976">WhatsApp</a>
+      <span><svg class="ico"><use href="#i-pin"/></svg>Franconville, Île-de-France</span>
+      <a href="mailto:ian.ndoumbe@2026.icam.fr"><svg class="ico"><use href="#i-mail"/></svg>ian.ndoumbe@2026.icam.fr</a>
+      <a href="tel:+33780743976"><svg class="ico"><use href="#i-phone"/></svg>07 80 74 39 76</a>
+      <a href="https://www.linkedin.com/in/ralph-ndoumbe/"><svg class="ico"><use href="#i-linkedin"/></svg>LinkedIn</a>
+      <a href="https://wa.me/33780743976"><svg class="ico"><use href="#i-whatsapp"/></svg>WhatsApp</a>
+      <a href="#contact-form"><svg class="ico"><use href="#i-message"/></svg><span data-fr="Message" data-en="Message">Message</span></a>
       <a href="assets/CV_Ralph_NDOUMBE.pdf" download data-fr="Télécharger le CV (PDF)" data-en="Download CV (PDF)">Télécharger le CV (PDF)</a>
     </div>
     <p class="note" data-fr="Disponible dès octobre 2026 — alternance 12 mois, 2 semaines entreprise / 1 semaine école." data-en="Available from October 2026 — 12-month work-study placement, 2 weeks in company / 1 week at school.">Disponible dès octobre 2026 — alternance 12 mois, 2 semaines entreprise / 1 semaine école.</p>
@@ -596,6 +673,23 @@
   var savedLang = 'fr';
   try{ savedLang = localStorage.getItem('portfolio-lang') || 'fr'; }catch(e){}
   setLang(savedLang);
+
+  function toggleMenu(force){
+    var list = document.getElementById('nav-list');
+    var btn = document.getElementById('nav-btn');
+    var open = (typeof force === 'boolean') ? force : list.hasAttribute('hidden');
+    if(open){ list.removeAttribute('hidden'); } else { list.setAttribute('hidden', ''); }
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  document.querySelectorAll('#nav-list a').forEach(function(a){
+    a.addEventListener('click', function(){ toggleMenu(false); });
+  });
+  document.addEventListener('click', function(e){
+    if(!document.getElementById('nav-menu').contains(e.target)){ toggleMenu(false); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ toggleMenu(false); }
+  });
 
   function sendMail(e){
     e.preventDefault();

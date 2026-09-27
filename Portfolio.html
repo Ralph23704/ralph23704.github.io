@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ralph Ndoumbe — Cybersécurité</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b1220;
+    --bg-panel:#0f1a2e;
+    --ink:#e7ecf5;
+    --ink-dim:#93a0b8;
+    --line:#1e2c46;
+    --accent:#5fd3c4;
+    --accent-dim:#2c5b56;
+    --serif:'Fraunces', Georgia, serif;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+    --sans:'Inter', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{
+    background:var(--bg); color:var(--ink); font-family:var(--sans);
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+    line-height:1.55;
+  }
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+
+  header.hero{
+    padding:96px 0 64px; border-bottom:1px solid var(--line);
+    background:
+      linear-gradient(180deg, rgba(95,211,196,0.06), transparent 60%),
+      var(--bg);
+  }
+  .kicker{
+    font-family:var(--mono); font-size:13px; color:var(--accent);
+    letter-spacing:0.02em; margin-bottom:18px;
+  }
+  h1{
+    font-family:var(--serif); font-weight:600; font-size:clamp(34px,5vw,56px);
+    line-height:1.08; max-width:11ch;
+  }
+  .role{
+    font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size:clamp(18px,2.4vw,22px); color:var(--ink-dim); margin-top:14px; max-width:38ch;
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:32px;
+    font-family:var(--mono); font-size:13.5px; color:var(--ink-dim);
+  }
+  .hero-meta span{white-space:nowrap;}
+  .cv-btn{
+    display:inline-block; margin-top:36px; font-family:var(--mono); font-size:13.5px;
+    color:var(--bg); background:var(--accent); border:1px solid var(--accent);
+    padding:11px 20px; border-radius:3px; text-decoration:none; transition:opacity 0.15s;
+  }
+  .cv-btn:hover{opacity:0.85; text-decoration:none;}
+
+  section{padding:56px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2{
+    font-family:var(--serif); font-weight:600; font-size:24px;
+    margin-bottom:26px; color:var(--ink);
+  }
+
+  .lede{max-width:62ch; color:var(--ink-dim); font-size:16px;}
+  .lede strong{color:var(--ink); font-weight:500;}
+
+  .skill-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px 40px;}
+  @media (max-width:640px){ .skill-grid{grid-template-columns:1fr;} }
+  .skill-group h3{
+    font-family:var(--sans); font-weight:600; font-size:14.5px; color:var(--ink);
+    margin-bottom:8px;
+  }
+  .skill-group p{
+    font-family:var(--mono); font-size:13.5px; color:var(--ink-dim); line-height:1.7;
+  }
+
+  .job{padding:22px 0; border-top:1px solid var(--line);}
+  .job:first-child{border-top:none; padding-top:0;}
+  .job-head{
+    display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;
+  }
+  .job-title{font-weight:600; font-size:16.5px; color:var(--ink);}
+  .job-org{color:var(--accent); font-weight:500;}
+  .job-dates{font-family:var(--mono); font-size:12.5px; color:var(--ink-dim); white-space:nowrap;}
+  .job ul{margin-top:12px; padding-left:20px; color:var(--ink-dim); font-size:14.5px;}
+  .job li{margin-bottom:6px;}
+  .job li::marker{color:var(--accent);}
+
+  .project{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:4px;
+    padding:28px;
+  }
+  .project h3{font-family:var(--serif); font-size:19px; margin-bottom:6px;}
+  .project .tag{font-family:var(--mono); font-size:12px; color:var(--accent); margin-bottom:14px; display:block;}
+  .project p{color:var(--ink-dim); font-size:14.5px; margin-bottom:14px;}
+  .stack{display:flex; flex-wrap:wrap; gap:8px;}
+  .stack span{
+    font-family:var(--mono); font-size:12px; color:var(--ink);
+    border:1px solid var(--accent-dim); background:rgba(95,211,196,0.06);
+    padding:3px 9px; border-radius:3px;
+  }
+
+  .certs{display:flex; flex-wrap:wrap; gap:10px 28px; font-size:14.5px;}
+  .certs span{color:var(--ink-dim);}
+  .certs strong{color:var(--ink); font-weight:500;}
+
+  footer{padding:56px 0 80px;}
+  .contact-row{display:flex; flex-wrap:wrap; gap:28px; align-items:baseline;}
+  .contact-row a{font-size:15px;}
+  footer .note{margin-top:24px; font-family:var(--mono); font-size:12.5px; color:var(--ink-dim);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">portfolio — cybersécurité opérationnelle</div>
+    <h1>Ralph Ndoumbe</h1>
+    <p class="role">Ingénieur en formation, spécialisé dans la gestion des vulnérabilités et la sécurité opérationnelle.</p>
+    <div class="hero-meta">
+      <span>Franconville, Île-de-France</span>
+      <span>ian.ndoumbe@2026.icam.fr</span>
+      <span>07 80 74 39 76</span>
+      <span><a href="https://www.linkedin.com/in/ralph-ndoumbe/">linkedin.com/in/ralph-ndoumbe</a></span>
+    </div>
+    <a class="cv-btn" href="assets/CV_Ralph_NDOUMBE.pdf" download>Télécharger le CV (PDF)</a>
+  </div>
+</header>
+
+<section id="profil">
+  <div class="wrap">
+    <h2>Profil</h2>
+    <p class="lede">
+      Ingénieur informatique diplômé de l'<strong>Institut Ucac-Icam</strong> (dernier semestre à l'Icam Nantes),
+      admis au <strong>Mastère Spécialisé® Expert en Cybersécurité</strong> de l'EFREI à partir d'octobre 2026.
+      Mon terrain de prédilection : l'identification et la remédiation des vulnérabilités, la détection d'incidents,
+      et la documentation qui rend une posture de sécurité lisible pour une équipe. J'ai audité des systèmes selon
+      l'ISO/IEC 27001, conçu une architecture SIEM et construit un SOC open source de bout en bout.
+      Je cherche une alternance où ces sujets sont encore à écrire.
+    </p>
+  </div>
+</section>
+
+<section id="competences">
+  <div class="wrap">
+    <h2>Compétences</h2>
+    <div class="skill-grid">
+      <div class="skill-group">
+        <h3>Vulnérabilités &amp; durcissement</h3>
+        <p>Nessus · OpenVAS · Burp Suite · Metasploit · Nmap · patch management · OWASP Top 10</p>
+      </div>
+      <div class="skill-group">
+        <h3>Détection &amp; réponse</h3>
+        <p>SIEM · EDR (Check Point Harmony) · IDS/IPS (Suricata) · Wazuh · ELK · MISP · TheHive · Cortex</p>
+      </div>
+      <div class="skill-group">
+        <h3>Systèmes &amp; réseau</h3>
+        <p>Linux · Windows · Active Directory · VMware · Docker · TCP/IP · DNS · DHCP · VLAN · BGP · Wireshark</p>
+      </div>
+      <div class="skill-group">
+        <h3>Scripting &amp; automatisation</h3>
+        <p>Python · Bash · PowerShell · C++ · automatisation SOAR (Shuffle)</p>
+      </div>
+      <div class="skill-group">
+        <h3>Conformité &amp; audit</h3>
+        <p>ISO/IEC 27001 · ISO/IEC 27002 · audit SSI · analyse de risques · rédaction de procédures</p>
+      </div>
+      <div class="skill-group">
+        <h3>Veille</h3>
+        <p>CVE · bulletins CERT-FR · TryHackMe · HackTheBox · Root-Me</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Expériences</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <div><span class="job-title">Stagiaire Sécurité des Systèmes d'Information</span> — <span class="job-org">CAMRAIL</span></div>
+        <div class="job-dates">09/2024 – 01/2025</div>
+      </div>
+      <ul>
+        <li>Identification, qualification et priorisation de 50 vulnérabilités avec OpenVAS ; recommandations de remédiation.</li>
+        <li>Audit de conformité sur 125 exigences ISO/IEC 27001, 27002 et 11801.</li>
+        <li>Contribution à la conception d'une architecture SIEM.</li>
+        <li>Migration de 30 postes Windows 10 vers Windows 11 ; segmentation réseau par VLAN.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div><span class="job-title">Stagiaire Support IT</span> — <span class="job-org">FGCL</span></div>
+        <div class="job-dates">05/2023 – 07/2023</div>
+      </div>
+      <ul>
+        <li>Identification et analyse de 30 vulnérabilités réseau avec Nessus.</li>
+        <li>Administration de postes Windows / VMware avec Active Directory ; gestion d'un parc de 50 équipements (GLPI).</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div><span class="job-title">Stagiaire Support IT NOC</span> — <span class="job-org">CAMIX</span></div>
+        <div class="job-dates">01/2024 – 04/2024</div>
+      </div>
+      <ul>
+        <li>Supervision de 20 équipements réseau avec PRTG ; peering BGP multilatéral au sein d'un IXP.</li>
+        <li>Analyse de 22 risques liés à l'exploitation de l'infrastructure.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div><span class="job-title">Ingénieur de Recherche</span> — <span class="job-org">Icam Nantes</span></div>
+        <div class="job-dates">02/2026 – 07/2026</div>
+      </div>
+      <ul>
+        <li>Système embarqué temps réel en C++ pour capteurs IMU (Arduino), communications BLE / MQTT.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projet">
+  <div class="wrap">
+    <h2>Projet phare</h2>
+    <div class="project">
+      <span class="tag">projet académique · 10/2025 – 01/2026</span>
+      <h3>AUTONOS — SOC automatisé basé sur la Threat Intelligence</h3>
+      <p>
+        Conception d'un SOC open source de bout en bout : détection, investigation, réponse.
+        Coordination de l'intégration de Suricata pour la détection réseau, et de MISP / TheHive / Cortex
+        pour l'enrichissement des indicateurs de compromission. Automatisation de la réponse via des
+        workflows Shuffle : blocage d'IP, isolation d'endpoints, notifications.
+      </p>
+      <div class="stack">
+        <span>Wazuh</span><span>ELK</span><span>OpenVAS</span><span>Suricata</span>
+        <span>MISP</span><span>TheHive</span><span>Cortex</span><span>Shuffle</span><span>Linux</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formation">
+  <div class="wrap">
+    <h2>Formation &amp; certifications</h2>
+    <div class="job" style="border-top:none; padding-top:0;">
+      <div class="job-head">
+        <div><span class="job-title">Mastère Spécialisé® Expert en Cybersécurité</span> — <span class="job-org">EFREI</span></div>
+        <div class="job-dates">2026 – 2027</div>
+      </div>
+    </div>
+    <div class="job">
+      <div class="job-head">
+        <div><span class="job-title">Diplôme d'Ingénieur Informatique</span> — <span class="job-org">Institut Ucac-Icam / Icam Nantes</span></div>
+        <div class="job-dates">2021 – 2026</div>
+      </div>
+    </div>
+    <div class="job">
+      <div class="job-head">
+        <div><span class="job-title">Certified Ethical Hacker (CEH v13)</span></div>
+        <div class="job-dates">2025</div>
+      </div>
+    </div>
+    <div class="certs" style="margin-top:8px;">
+      <span><strong>CCNA 1</strong></span>
+      <span><strong>CCNA 2</strong></span>
+      <span><strong>IBM AI Fundamentals</strong></span>
+      <span><strong>Check Point Harmony</strong> (Endpoint, Mobile, Email)</span>
+      <span><strong>Anglais</strong> — TOEIC 875</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="contact-row">
+      <a href="mailto:ian.ndoumbe@2026.icam.fr">ian.ndoumbe@2026.icam.fr</a>
+      <a href="tel:+33780743976">07 80 74 39 76</a>
+      <a href="https://www.linkedin.com/in/ralph-ndoumbe/">LinkedIn</a>
+      <a href="assets/CV_Ralph_NDOUMBE.pdf" download>Télécharger le CV (PDF)</a>
+    </div>
+    <p class="note">Disponible dès octobre 2026 — alternance 12 mois, 2 semaines entreprise / 1 semaine école.</p>
+  </div>
+</footer>
+
+</body>
+</html>

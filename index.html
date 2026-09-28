@@ -213,9 +213,20 @@
   .box .tool svg{color:rgb(var(--bx));}
   .job.box, .job.box:first-child{padding:22px 24px; border-top:1px solid rgba(var(--bx),0.25);}
   .skill-group.box{margin-bottom:0; padding:18px;}
+  .tool img{width:24px; height:24px; object-fit:contain; display:block;}
   form.contact.box{max-width:560px;}
   form.contact button .ico{color:var(--bg);}
 </style>
+<script>
+  /* Repli des logos : essaie .svg puis .png, sinon affiche l'icône générique */
+  function iconFb(img){
+    var src = img.getAttribute('src');
+    if(/\.svg$/.test(src) && !img.dataset.tried){ img.dataset.tried = '1'; img.src = src.replace(/\.svg$/, '.png'); return; }
+    img.onerror = null;
+    var ns = 'http://www.w3.org/2000/svg', s = document.createElementNS(ns, 'svg'), u = document.createElementNS(ns, 'use');
+    u.setAttribute('href', '#' + img.dataset.fb); s.appendChild(u); img.replaceWith(s);
+  }
+</script>
 </head>
 <body>
 
@@ -246,6 +257,7 @@
     <svg class="ico"><use href="#i-menu"/></svg><span data-fr="Menu" data-en="Menu">Menu</span>
   </button>
   <ul class="nav-list" id="nav-list" hidden>
+    <li><a href="#accueil" data-fr="Accueil" data-en="Home">Accueil</a></li>
     <li><a href="#profil" data-fr="Profil" data-en="Profile">Profil</a></li>
     <li><a href="#competences" data-fr="Compétences" data-en="Skills &amp; tools">Compétences</a></li>
     <li><a href="#experience" data-fr="Expériences" data-en="Experiences">Expériences</a></li>
@@ -264,7 +276,7 @@
   <button id="btn-en" onclick="setLang('en')">EN</button>
 </div>
 
-<header class="hero">
+<header class="hero" id="accueil">
   <div class="wrap">
     <span class="badge-open">
       <span class="dot"></span>
@@ -321,50 +333,50 @@
       <div class="skill-group tool-group box rose">
         <h3 data-fr="Vulnérabilités &amp; durcissement" data-en="Vulnerabilities &amp; hardening">Vulnérabilités &amp; durcissement</h3>
         <div class="tool-grid">
-          <div class="tool"><svg><use href="#i-scan"/></svg><span>Nessus</span></div>
-          <div class="tool"><svg><use href="#i-scan"/></svg><span>OpenVAS</span></div>
-          <div class="tool"><svg><use href="#i-scan"/></svg><span>Burp Suite</span></div>
-          <div class="tool"><svg><use href="#i-scan"/></svg><span>Metasploit</span></div>
-          <div class="tool"><svg><use href="#i-scan"/></svg><span>Nmap</span></div>
+          <div class="tool"><img src="assets/icons/nessus.svg" alt="" data-fb="i-scan" onerror="iconFb(this)"><span>Nessus</span></div>
+          <div class="tool"><img src="assets/icons/openvas.svg" alt="" data-fb="i-scan" onerror="iconFb(this)"><span>OpenVAS</span></div>
+          <div class="tool"><img src="assets/icons/burpsuite.svg" alt="" data-fb="i-scan" onerror="iconFb(this)"><span>Burp Suite</span></div>
+          <div class="tool"><img src="assets/icons/metasploit.svg" alt="" data-fb="i-scan" onerror="iconFb(this)"><span>Metasploit</span></div>
+          <div class="tool"><img src="assets/icons/nmap.svg" alt="" data-fb="i-scan" onerror="iconFb(this)"><span>Nmap</span></div>
         </div>
       </div>
       <div class="skill-group tool-group box sky">
         <h3 data-fr="Détection &amp; réponse" data-en="Detection &amp; response">Détection &amp; réponse</h3>
         <div class="tool-grid">
           <div class="tool"><svg><use href="#i-monitor"/></svg><span>SIEM</span></div>
-          <div class="tool"><svg><use href="#i-shield"/></svg><span>EDR — Check Point Harmony</span></div>
-          <div class="tool"><svg><use href="#i-alert"/></svg><span>Suricata (IDS/IPS)</span></div>
-          <div class="tool"><svg><use href="#i-monitor"/></svg><span>Wazuh</span></div>
-          <div class="tool"><svg><use href="#i-monitor"/></svg><span>ELK</span></div>
-          <div class="tool"><svg><use href="#i-intel"/></svg><span>MISP</span></div>
-          <div class="tool"><svg><use href="#i-intel"/></svg><span>TheHive</span></div>
-          <div class="tool"><svg><use href="#i-intel"/></svg><span>Cortex</span></div>
+          <div class="tool"><img src="assets/icons/checkpoint-harmony.svg" alt="" data-fb="i-shield" onerror="iconFb(this)"><span>EDR — Check Point Harmony</span></div>
+          <div class="tool"><img src="assets/icons/suricata.svg" alt="" data-fb="i-alert" onerror="iconFb(this)"><span>Suricata (IDS/IPS)</span></div>
+          <div class="tool"><img src="assets/icons/wazuh.svg" alt="" data-fb="i-monitor" onerror="iconFb(this)"><span>Wazuh</span></div>
+          <div class="tool"><img src="assets/icons/elk.svg" alt="" data-fb="i-monitor" onerror="iconFb(this)"><span>ELK</span></div>
+          <div class="tool"><img src="assets/icons/misp.svg" alt="" data-fb="i-intel" onerror="iconFb(this)"><span>MISP</span></div>
+          <div class="tool"><img src="assets/icons/thehive.svg" alt="" data-fb="i-intel" onerror="iconFb(this)"><span>TheHive</span></div>
+          <div class="tool"><img src="assets/icons/cortex.svg" alt="" data-fb="i-intel" onerror="iconFb(this)"><span>Cortex</span></div>
         </div>
       </div>
       <div class="skill-group tool-group box violet">
         <h3 data-fr="Systèmes &amp; réseau" data-en="Systems &amp; network">Systèmes &amp; réseau</h3>
         <div class="tool-grid">
-          <div class="tool"><svg><use href="#i-server"/></svg><span>Linux</span></div>
-          <div class="tool"><svg><use href="#i-server"/></svg><span>Windows</span></div>
-          <div class="tool"><svg><use href="#i-server"/></svg><span>Active Directory</span></div>
-          <div class="tool"><svg><use href="#i-server"/></svg><span>VMware</span></div>
-          <div class="tool"><svg><use href="#i-server"/></svg><span>Docker</span></div>
+          <div class="tool"><img src="assets/icons/linux.svg" alt="" data-fb="i-server" onerror="iconFb(this)"><span>Linux</span></div>
+          <div class="tool"><img src="assets/icons/windows.svg" alt="" data-fb="i-server" onerror="iconFb(this)"><span>Windows</span></div>
+          <div class="tool"><img src="assets/icons/active-directory.svg" alt="" data-fb="i-server" onerror="iconFb(this)"><span>Active Directory</span></div>
+          <div class="tool"><img src="assets/icons/vmware.svg" alt="" data-fb="i-server" onerror="iconFb(this)"><span>VMware</span></div>
+          <div class="tool"><img src="assets/icons/docker.svg" alt="" data-fb="i-server" onerror="iconFb(this)"><span>Docker</span></div>
           <div class="tool"><svg><use href="#i-network"/></svg><span>TCP/IP</span></div>
           <div class="tool"><svg><use href="#i-network"/></svg><span>DNS</span></div>
           <div class="tool"><svg><use href="#i-network"/></svg><span>DHCP</span></div>
           <div class="tool"><svg><use href="#i-network"/></svg><span>VLAN</span></div>
           <div class="tool"><svg><use href="#i-network"/></svg><span>BGP</span></div>
-          <div class="tool"><svg><use href="#i-alert"/></svg><span>Wireshark</span></div>
+          <div class="tool"><img src="assets/icons/wireshark.svg" alt="" data-fb="i-alert" onerror="iconFb(this)"><span>Wireshark</span></div>
         </div>
       </div>
       <div class="skill-group tool-group box amber">
         <h3 data-fr="Scripting &amp; automatisation" data-en="Scripting &amp; automation">Scripting &amp; automatisation</h3>
         <div class="tool-grid">
-          <div class="tool"><svg><use href="#i-terminal"/></svg><span>Python</span></div>
-          <div class="tool"><svg><use href="#i-terminal"/></svg><span>Bash</span></div>
-          <div class="tool"><svg><use href="#i-terminal"/></svg><span>PowerShell</span></div>
-          <div class="tool"><svg><use href="#i-terminal"/></svg><span>C++</span></div>
-          <div class="tool"><svg><use href="#i-gear"/></svg><span>Shuffle (SOAR)</span></div>
+          <div class="tool"><img src="assets/icons/python.svg" alt="" data-fb="i-terminal" onerror="iconFb(this)"><span>Python</span></div>
+          <div class="tool"><img src="assets/icons/bash.svg" alt="" data-fb="i-terminal" onerror="iconFb(this)"><span>Bash</span></div>
+          <div class="tool"><img src="assets/icons/powershell.svg" alt="" data-fb="i-terminal" onerror="iconFb(this)"><span>PowerShell</span></div>
+          <div class="tool"><img src="assets/icons/cplusplus.svg" alt="" data-fb="i-terminal" onerror="iconFb(this)"><span>C++</span></div>
+          <div class="tool"><img src="assets/icons/shuffle.svg" alt="" data-fb="i-gear" onerror="iconFb(this)"><span>Shuffle (SOAR)</span></div>
         </div>
       </div>
       <div class="skill-group tool-group box">
